@@ -1,0 +1,26 @@
+{
+  "name": "imperium_server",
+  "version": "1.0.0",
+  "description": "server for imperium motus website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreaselmi/IMPERIUM_SERVER.git"
+  },
+  "author": "Andrea Selmi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreaselmi/IMPERIUM_SERVER/issues"
+  },
+  "homepage": "https://github.com/andreaselmi/IMPERIUM_SERVER#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
