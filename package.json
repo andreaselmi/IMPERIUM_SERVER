@@ -19,6 +19,7 @@
   "homepage": "https://github.com/andreaselmi/IMPERIUM_SERVER#readme",
   "dependencies": {
     "@sendgrid/mail": "^7.6.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.18.1"
   },

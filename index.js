@@ -1,6 +1,9 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
 const sendgrid = require("@sendgrid/mail");
@@ -19,9 +22,9 @@ app.post("/mail", (req, res) => {
   const { name, phone, info } = req.body;
 
   const msg = {
-    to: "andreaselmi90@gmail.com",
+    to: process.env.EMAIL_SEND_TO,
     // Change to your recipient
-    from: "prenotazioni@imperium-motus.it",
+    from: process.env.EMAIL_SEND_FROM,
     // Change to your verified sender
     subject: "Prenotazione",
     text: `Prenotazione da ${name}, telefono: ${phone}, Info addizionali: ${info}`,
@@ -30,13 +33,11 @@ app.post("/mail", (req, res) => {
   sendgrid
     .send(msg)
     .then((resp) => {
-      res.send("Messaggio ok");
+      res.status(200).send("Mail inviata correttamente");
     })
     .catch((error) => {
-      console.error(error);
+      res.status(500).send("Si è verificato un errore");
     });
-
-  res.status(200);
 });
 
 app.listen(PORT, () => {
