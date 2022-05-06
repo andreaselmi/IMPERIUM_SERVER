@@ -9,7 +9,7 @@ app.use(express.json());
 const sendgrid = require("@sendgrid/mail");
 
 const SENDGRID_API_KEY = process.env.EMAIL_API_KEY;
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 sendgrid.setApiKey(SENDGRID_API_KEY);
 
