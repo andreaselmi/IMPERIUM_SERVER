@@ -1,4 +1,5 @@
 require("dotenv").config();
+const mongoose = require("mongoose");
 const email = require("./routes/email");
 const express = require("express");
 const cors = require("cors");
@@ -14,6 +15,19 @@ const SENDGRID_API_KEY = process.env.EMAIL_API_KEY;
 const PORT = process.env.PORT || 5000;
 
 sendgrid.setApiKey(SENDGRID_API_KEY);
+
+const dbUrl = process.env.DB;
+
+mongoose.connect(dbUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error: "));
+db.once("open", function () {
+  console.log("Connected to db success");
+});
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get("/", function (req, res) {
