@@ -15,7 +15,7 @@ router.post("/", (req, res) => {
     // Change to your verified sender
     subject: "Prenotazione",
     text: `Prenotazione da ${name}, telefono: ${phone}, Info addizionali: ${info}`,
-    html: `Prenotazione da ${name}, telefono: ${phone}, Info addizionali: ${info}`,
+    html: `<b>Prenotazione da:</b> ${name} </br> <b>telefono:</b> ${phone} </br>  <b>Info addizionali:</b> ${info}`,
   };
   sendgrid
     .send(msg)
